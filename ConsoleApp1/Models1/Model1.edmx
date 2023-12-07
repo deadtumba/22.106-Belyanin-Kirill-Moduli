@@ -1,0 +1,1087 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище GornoDobivayushiyKombinatModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Autorizacia">
+          <Key>
+            <PropertyRef Name="ID_Avtorizaciya" />
+          </Key>
+          <Property Name="ID_Avtorizaciya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Sotrudnik" Type="int" />
+          <Property Name="Login" Type="nvarchar(max)" />
+          <Property Name="Parol" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Doljnost">
+          <Key>
+            <PropertyRef Name="ID_Doljnost" />
+          </Key>
+          <Property Name="ID_Doljnost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie_dooljnosti" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Grafik_rabot">
+          <Key>
+            <PropertyRef Name="ID_Grafik_rabot" />
+          </Key>
+          <Property Name="ID_Grafik_rabot" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Smena" Type="int" />
+          <Property Name="ID_Sotrudnik" Type="int" />
+        </EntityType>
+        <EntityType Name="Mesta_dobichi">
+          <Key>
+            <PropertyRef Name="ID_Mesta_dobichi" />
+          </Key>
+          <Property Name="ID_Mesta_dobichi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Vid_Mestorozhdenia" Type="nvarchar" MaxLength="100" />
+          <Property Name="Gorod" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Metalli">
+          <Key>
+            <PropertyRef Name="ID_Metalla" />
+          </Key>
+          <Property Name="ID_Metalla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie_metalla" Type="nvarchar" MaxLength="50" />
+          <Property Name="Plotnost_metalla" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Oborudovanie">
+          <Key>
+            <PropertyRef Name="ID_Oborudovaniya" />
+          </Key>
+          <Property Name="ID_Oborudovaniya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvaie_oborudovaniya" Type="int" />
+        </EntityType>
+        <EntityType Name="Otchet_smeni">
+          <Key>
+            <PropertyRef Name="ID_Otchet_smeni" />
+          </Key>
+          <Property Name="ID_Otchet_smeni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Smeni" Type="int" />
+          <Property Name="ID_Metalla" Type="int" />
+          <Property Name="Kolichestvo_dobitogo_metalla" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kolichestvo_rabotnikov" Type="int" />
+        </EntityType>
+        <EntityType Name="Pasport">
+          <Key>
+            <PropertyRef Name="ID_Pasport" />
+          </Key>
+          <Property Name="ID_Pasport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imya" Type="nvarchar" MaxLength="50" />
+          <Property Name="Familiya" Type="nvarchar" MaxLength="50" />
+          <Property Name="Otchestvo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Data_rozhdenia" Type="date" />
+          <Property Name="Data_vidachy" Type="date" />
+          <Property Name="Kem_vidan" Type="nvarchar" MaxLength="100" />
+          <Property Name="Nomer" Type="int" />
+          <Property Name="Seria" Type="int" />
+          <Property Name="ID_Propiska" Type="int" />
+          <Property Name="ID_Pol" Type="int" />
+        </EntityType>
+        <EntityType Name="Pol">
+          <Key>
+            <PropertyRef Name="ID_Pol" />
+          </Key>
+          <Property Name="ID_Pol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pol" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Postavshiki">
+          <Key>
+            <PropertyRef Name="ID_Postavshika_oborudovaniya" />
+          </Key>
+          <Property Name="ID_Postavshika_oborudovaniya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie_postavshika" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Propiska">
+          <Key>
+            <PropertyRef Name="ID_Propiska" />
+          </Key>
+          <Property Name="ID_Propiska" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rayon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Punkt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ulitca" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Data_registracii" Type="date" />
+        </EntityType>
+        <EntityType Name="Smena">
+          <Key>
+            <PropertyRef Name="ID_Smena" />
+          </Key>
+          <Property Name="ID_Smena" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Mesta_dobichi" Type="int" />
+          <Property Name="Data_nachala" Type="date" />
+          <Property Name="Data_konca" Type="date" />
+          <Property Name="ID_Smotryashiy" Type="int" />
+        </EntityType>
+        <EntityType Name="Smotryashiy">
+          <Key>
+            <PropertyRef Name="ID_Smotryashiy" />
+          </Key>
+          <Property Name="ID_Smotryashiy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Sotrudnik" Type="int" />
+          <Property Name="Imya_naznachivshego" Type="nvarchar" MaxLength="50" />
+          <Property Name="Familiya_naznachivshego" Type="nvarchar" MaxLength="50" />
+          <Property Name="Otchestvo_naznachivshego" Type="nvarchar" MaxLength="50" />
+          <Property Name="Data_naznacheniya" Type="date" />
+        </EntityType>
+        <EntityType Name="Sotrudnik">
+          <Key>
+            <PropertyRef Name="ID_Sotrudnik" />
+          </Key>
+          <Property Name="ID_Sotrudnik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Pasport" Type="int" />
+          <Property Name="Oklad" Type="money" />
+          <Property Name="Nomer_telephona" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Data_nachala_rabot" Type="date" />
+          <Property Name="Data_uvolneniya" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Doljnost" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="vid_mestorozhdeniya">
+          <Key>
+            <PropertyRef Name="ID_Vid_mestorozhdeniya" />
+          </Key>
+          <Property Name="ID_Vid_mestorozhdeniya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vid_mestorozhdeniya" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Zayavki_na_oborudovanie">
+          <Key>
+            <PropertyRef Name="ID_Zayavki_na_zakaz_oborudovaniya" />
+          </Key>
+          <Property Name="ID_Zayavki_na_zakaz_oborudovaniya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Postavshika_oborudovaniya" Type="int" />
+          <Property Name="ID_oborudovaniya" Type="int" />
+          <Property Name="Kolichestvo_postavlyaemogo_oborudovaniya" Type="int" />
+          <Property Name="ID_Sotrudnik" Type="int" />
+        </EntityType>
+        <Association Name="FK_Autorizacia_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Autorizacia" Type="Self.Autorizacia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Autorizacia">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grafik_rabot_Smena">
+          <End Role="Smena" Type="Self.Smena" Multiplicity="0..1" />
+          <End Role="Grafik_rabot" Type="Self.Grafik_rabot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smena">
+              <PropertyRef Name="ID_Smena" />
+            </Principal>
+            <Dependent Role="Grafik_rabot">
+              <PropertyRef Name="ID_Smena" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grafik_rabot_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Grafik_rabot" Type="Self.Grafik_rabot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Grafik_rabot">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otchet_smeni_Metalli">
+          <End Role="Metalli" Type="Self.Metalli" Multiplicity="0..1" />
+          <End Role="Otchet_smeni" Type="Self.Otchet_smeni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Metalli">
+              <PropertyRef Name="ID_Metalla" />
+            </Principal>
+            <Dependent Role="Otchet_smeni">
+              <PropertyRef Name="ID_Metalla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otchet_smeni_Smena">
+          <End Role="Smena" Type="Self.Smena" Multiplicity="0..1" />
+          <End Role="Otchet_smeni" Type="Self.Otchet_smeni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smena">
+              <PropertyRef Name="ID_Smena" />
+            </Principal>
+            <Dependent Role="Otchet_smeni">
+              <PropertyRef Name="ID_Smeni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pasport_Pol">
+          <End Role="Pol" Type="Self.Pol" Multiplicity="0..1" />
+          <End Role="Pasport" Type="Self.Pasport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pol">
+              <PropertyRef Name="ID_Pol" />
+            </Principal>
+            <Dependent Role="Pasport">
+              <PropertyRef Name="ID_Pol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pasport_Propiska">
+          <End Role="Propiska" Type="Self.Propiska" Multiplicity="0..1" />
+          <End Role="Pasport" Type="Self.Pasport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiska">
+              <PropertyRef Name="ID_Propiska" />
+            </Principal>
+            <Dependent Role="Pasport">
+              <PropertyRef Name="ID_Propiska" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smena_Mesta_dobichi">
+          <End Role="Mesta_dobichi" Type="Self.Mesta_dobichi" Multiplicity="0..1" />
+          <End Role="Smena" Type="Self.Smena" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesta_dobichi">
+              <PropertyRef Name="ID_Mesta_dobichi" />
+            </Principal>
+            <Dependent Role="Smena">
+              <PropertyRef Name="ID_Mesta_dobichi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smena_Smotryashiy">
+          <End Role="Smotryashiy" Type="Self.Smotryashiy" Multiplicity="0..1" />
+          <End Role="Smena" Type="Self.Smena" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smotryashiy">
+              <PropertyRef Name="ID_Smotryashiy" />
+            </Principal>
+            <Dependent Role="Smena">
+              <PropertyRef Name="ID_Smotryashiy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smotryashiy_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Smotryashiy" Type="Self.Smotryashiy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Smotryashiy">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Doljnost">
+          <End Role="Doljnost" Type="Self.Doljnost" Multiplicity="0..1" />
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doljnost">
+              <PropertyRef Name="ID_Doljnost" />
+            </Principal>
+            <Dependent Role="Sotrudnik">
+              <PropertyRef Name="ID_Doljnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Pasport">
+          <End Role="Pasport" Type="Self.Pasport" Multiplicity="0..1" />
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pasport">
+              <PropertyRef Name="ID_Pasport" />
+            </Principal>
+            <Dependent Role="Sotrudnik">
+              <PropertyRef Name="ID_Pasport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavki_na_oborudovanie_Oborudovanie">
+          <End Role="Oborudovanie" Type="Self.Oborudovanie" Multiplicity="0..1" />
+          <End Role="Zayavki_na_oborudovanie" Type="Self.Zayavki_na_oborudovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oborudovanie">
+              <PropertyRef Name="ID_Oborudovaniya" />
+            </Principal>
+            <Dependent Role="Zayavki_na_oborudovanie">
+              <PropertyRef Name="ID_oborudovaniya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavki_na_oborudovanie_Postavshiki">
+          <End Role="Postavshiki" Type="Self.Postavshiki" Multiplicity="0..1" />
+          <End Role="Zayavki_na_oborudovanie" Type="Self.Zayavki_na_oborudovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postavshiki">
+              <PropertyRef Name="ID_Postavshika_oborudovaniya" />
+            </Principal>
+            <Dependent Role="Zayavki_na_oborudovanie">
+              <PropertyRef Name="ID_Postavshika_oborudovaniya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavki_na_oborudovanie_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Zayavki_na_oborudovanie" Type="Self.Zayavki_na_oborudovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Zayavki_na_oborudovanie">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище GornoDobivayushiyKombinatModelContainer">
+          <EntitySet Name="Autorizacia" EntityType="Self.Autorizacia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doljnost" EntityType="Self.Doljnost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grafik_rabot" EntityType="Self.Grafik_rabot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mesta_dobichi" EntityType="Self.Mesta_dobichi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Metalli" EntityType="Self.Metalli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oborudovanie" EntityType="Self.Oborudovanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Otchet_smeni" EntityType="Self.Otchet_smeni" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pasport" EntityType="Self.Pasport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pol" EntityType="Self.Pol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Postavshiki" EntityType="Self.Postavshiki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Propiska" EntityType="Self.Propiska" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smena" EntityType="Self.Smena" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smotryashiy" EntityType="Self.Smotryashiy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vid_mestorozhdeniya" EntityType="Self.vid_mestorozhdeniya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zayavki_na_oborudovanie" EntityType="Self.Zayavki_na_oborudovanie" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Autorizacia_Sotrudnik" Association="Self.FK_Autorizacia_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Autorizacia" EntitySet="Autorizacia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grafik_rabot_Smena" Association="Self.FK_Grafik_rabot_Smena">
+            <End Role="Smena" EntitySet="Smena" />
+            <End Role="Grafik_rabot" EntitySet="Grafik_rabot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grafik_rabot_Sotrudnik" Association="Self.FK_Grafik_rabot_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Grafik_rabot" EntitySet="Grafik_rabot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otchet_smeni_Metalli" Association="Self.FK_Otchet_smeni_Metalli">
+            <End Role="Metalli" EntitySet="Metalli" />
+            <End Role="Otchet_smeni" EntitySet="Otchet_smeni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otchet_smeni_Smena" Association="Self.FK_Otchet_smeni_Smena">
+            <End Role="Smena" EntitySet="Smena" />
+            <End Role="Otchet_smeni" EntitySet="Otchet_smeni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pasport_Pol" Association="Self.FK_Pasport_Pol">
+            <End Role="Pol" EntitySet="Pol" />
+            <End Role="Pasport" EntitySet="Pasport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pasport_Propiska" Association="Self.FK_Pasport_Propiska">
+            <End Role="Propiska" EntitySet="Propiska" />
+            <End Role="Pasport" EntitySet="Pasport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smena_Mesta_dobichi" Association="Self.FK_Smena_Mesta_dobichi">
+            <End Role="Mesta_dobichi" EntitySet="Mesta_dobichi" />
+            <End Role="Smena" EntitySet="Smena" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smena_Smotryashiy" Association="Self.FK_Smena_Smotryashiy">
+            <End Role="Smotryashiy" EntitySet="Smotryashiy" />
+            <End Role="Smena" EntitySet="Smena" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smotryashiy_Sotrudnik" Association="Self.FK_Smotryashiy_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Smotryashiy" EntitySet="Smotryashiy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Doljnost" Association="Self.FK_Sotrudnik_Doljnost">
+            <End Role="Doljnost" EntitySet="Doljnost" />
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Pasport" Association="Self.FK_Sotrudnik_Pasport">
+            <End Role="Pasport" EntitySet="Pasport" />
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavki_na_oborudovanie_Oborudovanie" Association="Self.FK_Zayavki_na_oborudovanie_Oborudovanie">
+            <End Role="Oborudovanie" EntitySet="Oborudovanie" />
+            <End Role="Zayavki_na_oborudovanie" EntitySet="Zayavki_na_oborudovanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavki_na_oborudovanie_Postavshiki" Association="Self.FK_Zayavki_na_oborudovanie_Postavshiki">
+            <End Role="Postavshiki" EntitySet="Postavshiki" />
+            <End Role="Zayavki_na_oborudovanie" EntitySet="Zayavki_na_oborudovanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavki_na_oborudovanie_Sotrudnik" Association="Self.FK_Zayavki_na_oborudovanie_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Zayavki_na_oborudovanie" EntitySet="Zayavki_na_oborudovanie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GornoDobivayushiyKombinatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Autorizacia">
+          <Key>
+            <PropertyRef Name="ID_Avtorizaciya" />
+          </Key>
+          <Property Name="ID_Avtorizaciya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Sotrudnik" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Parol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Autorizacia_Sotrudnik" FromRole="Autorizacia" ToRole="Sotrudnik" />
+        </EntityType>
+        <EntityType Name="Doljnost">
+          <Key>
+            <PropertyRef Name="ID_Doljnost" />
+          </Key>
+          <Property Name="ID_Doljnost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie_dooljnosti" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Sotrudnik_Doljnost" FromRole="Doljnost" ToRole="Sotrudnik" />
+        </EntityType>
+        <EntityType Name="Grafik_rabot">
+          <Key>
+            <PropertyRef Name="ID_Grafik_rabot" />
+          </Key>
+          <Property Name="ID_Grafik_rabot" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Smena" Type="Int32" />
+          <Property Name="ID_Sotrudnik" Type="Int32" />
+          <NavigationProperty Name="Smena" Relationship="Self.FK_Grafik_rabot_Smena" FromRole="Grafik_rabot" ToRole="Smena" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Grafik_rabot_Sotrudnik" FromRole="Grafik_rabot" ToRole="Sotrudnik" />
+        </EntityType>
+        <EntityType Name="Mesta_dobichi">
+          <Key>
+            <PropertyRef Name="ID_Mesta_dobichi" />
+          </Key>
+          <Property Name="ID_Mesta_dobichi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Vid_Mestorozhdenia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Gorod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Smena" Relationship="Self.FK_Smena_Mesta_dobichi" FromRole="Mesta_dobichi" ToRole="Smena" />
+        </EntityType>
+        <EntityType Name="Metalli">
+          <Key>
+            <PropertyRef Name="ID_Metalla" />
+          </Key>
+          <Property Name="ID_Metalla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie_metalla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Plotnost_metalla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Otchet_smeni" Relationship="Self.FK_Otchet_smeni_Metalli" FromRole="Metalli" ToRole="Otchet_smeni" />
+        </EntityType>
+        <EntityType Name="Oborudovanie">
+          <Key>
+            <PropertyRef Name="ID_Oborudovaniya" />
+          </Key>
+          <Property Name="ID_Oborudovaniya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvaie_oborudovaniya" Type="Int32" />
+          <NavigationProperty Name="Zayavki_na_oborudovanie" Relationship="Self.FK_Zayavki_na_oborudovanie_Oborudovanie" FromRole="Oborudovanie" ToRole="Zayavki_na_oborudovanie" />
+        </EntityType>
+        <EntityType Name="Otchet_smeni">
+          <Key>
+            <PropertyRef Name="ID_Otchet_smeni" />
+          </Key>
+          <Property Name="ID_Otchet_smeni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Smeni" Type="Int32" />
+          <Property Name="ID_Metalla" Type="Int32" />
+          <Property Name="Kolichestvo_dobitogo_metalla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kolichestvo_rabotnikov" Type="Int32" />
+          <NavigationProperty Name="Metalli" Relationship="Self.FK_Otchet_smeni_Metalli" FromRole="Otchet_smeni" ToRole="Metalli" />
+          <NavigationProperty Name="Smena" Relationship="Self.FK_Otchet_smeni_Smena" FromRole="Otchet_smeni" ToRole="Smena" />
+        </EntityType>
+        <EntityType Name="Pasport">
+          <Key>
+            <PropertyRef Name="ID_Pasport" />
+          </Key>
+          <Property Name="ID_Pasport" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Familiya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Otchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Data_rozhdenia" Type="DateTime" Precision="0" />
+          <Property Name="Data_vidachy" Type="DateTime" Precision="0" />
+          <Property Name="Kem_vidan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Nomer" Type="Int32" />
+          <Property Name="Seria" Type="Int32" />
+          <Property Name="ID_Propiska" Type="Int32" />
+          <Property Name="ID_Pol" Type="Int32" />
+          <NavigationProperty Name="Pol" Relationship="Self.FK_Pasport_Pol" FromRole="Pasport" ToRole="Pol" />
+          <NavigationProperty Name="Propiska" Relationship="Self.FK_Pasport_Propiska" FromRole="Pasport" ToRole="Propiska" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Sotrudnik_Pasport" FromRole="Pasport" ToRole="Sotrudnik" />
+        </EntityType>
+        <EntityType Name="Pol">
+          <Key>
+            <PropertyRef Name="ID_Pol" />
+          </Key>
+          <Property Name="ID_Pol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pol1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pasport" Relationship="Self.FK_Pasport_Pol" FromRole="Pol" ToRole="Pasport" />
+        </EntityType>
+        <EntityType Name="Postavshiki">
+          <Key>
+            <PropertyRef Name="ID_Postavshika_oborudovaniya" />
+          </Key>
+          <Property Name="ID_Postavshika_oborudovaniya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie_postavshika" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Zayavki_na_oborudovanie" Relationship="Self.FK_Zayavki_na_oborudovanie_Postavshiki" FromRole="Postavshiki" ToRole="Zayavki_na_oborudovanie" />
+        </EntityType>
+        <EntityType Name="Propiska">
+          <Key>
+            <PropertyRef Name="ID_Propiska" />
+          </Key>
+          <Property Name="ID_Propiska" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rayon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Punkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ulitca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Data_registracii" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Pasport" Relationship="Self.FK_Pasport_Propiska" FromRole="Propiska" ToRole="Pasport" />
+        </EntityType>
+        <EntityType Name="Smena">
+          <Key>
+            <PropertyRef Name="ID_Smena" />
+          </Key>
+          <Property Name="ID_Smena" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Mesta_dobichi" Type="Int32" />
+          <Property Name="Data_nachala" Type="DateTime" Precision="0" />
+          <Property Name="Data_konca" Type="DateTime" Precision="0" />
+          <Property Name="ID_Smotryashiy" Type="Int32" />
+          <NavigationProperty Name="Grafik_rabot" Relationship="Self.FK_Grafik_rabot_Smena" FromRole="Smena" ToRole="Grafik_rabot" />
+          <NavigationProperty Name="Mesta_dobichi" Relationship="Self.FK_Smena_Mesta_dobichi" FromRole="Smena" ToRole="Mesta_dobichi" />
+          <NavigationProperty Name="Otchet_smeni" Relationship="Self.FK_Otchet_smeni_Smena" FromRole="Smena" ToRole="Otchet_smeni" />
+          <NavigationProperty Name="Smotryashiy" Relationship="Self.FK_Smena_Smotryashiy" FromRole="Smena" ToRole="Smotryashiy" />
+        </EntityType>
+        <EntityType Name="Smotryashiy">
+          <Key>
+            <PropertyRef Name="ID_Smotryashiy" />
+          </Key>
+          <Property Name="ID_Smotryashiy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Sotrudnik" Type="Int32" />
+          <Property Name="Imya_naznachivshego" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Familiya_naznachivshego" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Otchestvo_naznachivshego" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Data_naznacheniya" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Smena" Relationship="Self.FK_Smena_Smotryashiy" FromRole="Smotryashiy" ToRole="Smena" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Smotryashiy_Sotrudnik" FromRole="Smotryashiy" ToRole="Sotrudnik" />
+        </EntityType>
+        <EntityType Name="Sotrudnik">
+          <Key>
+            <PropertyRef Name="ID_Sotrudnik" />
+          </Key>
+          <Property Name="ID_Sotrudnik" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Pasport" Type="Int32" />
+          <Property Name="Oklad" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Nomer_telephona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Data_nachala_rabot" Type="DateTime" Precision="0" />
+          <Property Name="Data_uvolneniya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Doljnost" Type="Int32" />
+          <NavigationProperty Name="Autorizacia" Relationship="Self.FK_Autorizacia_Sotrudnik" FromRole="Sotrudnik" ToRole="Autorizacia" />
+          <NavigationProperty Name="Doljnost" Relationship="Self.FK_Sotrudnik_Doljnost" FromRole="Sotrudnik" ToRole="Doljnost" />
+          <NavigationProperty Name="Grafik_rabot" Relationship="Self.FK_Grafik_rabot_Sotrudnik" FromRole="Sotrudnik" ToRole="Grafik_rabot" />
+          <NavigationProperty Name="Pasport" Relationship="Self.FK_Sotrudnik_Pasport" FromRole="Sotrudnik" ToRole="Pasport" />
+          <NavigationProperty Name="Smotryashiy" Relationship="Self.FK_Smotryashiy_Sotrudnik" FromRole="Sotrudnik" ToRole="Smotryashiy" />
+          <NavigationProperty Name="Zayavki_na_oborudovanie" Relationship="Self.FK_Zayavki_na_oborudovanie_Sotrudnik" FromRole="Sotrudnik" ToRole="Zayavki_na_oborudovanie" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vid_mestorozhdeniya">
+          <Key>
+            <PropertyRef Name="ID_Vid_mestorozhdeniya" />
+          </Key>
+          <Property Name="ID_Vid_mestorozhdeniya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vid_mestorozhdeniya1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Zayavki_na_oborudovanie">
+          <Key>
+            <PropertyRef Name="ID_Zayavki_na_zakaz_oborudovaniya" />
+          </Key>
+          <Property Name="ID_Zayavki_na_zakaz_oborudovaniya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Postavshika_oborudovaniya" Type="Int32" />
+          <Property Name="ID_oborudovaniya" Type="Int32" />
+          <Property Name="Kolichestvo_postavlyaemogo_oborudovaniya" Type="Int32" />
+          <Property Name="ID_Sotrudnik" Type="Int32" />
+          <NavigationProperty Name="Oborudovanie" Relationship="Self.FK_Zayavki_na_oborudovanie_Oborudovanie" FromRole="Zayavki_na_oborudovanie" ToRole="Oborudovanie" />
+          <NavigationProperty Name="Postavshiki" Relationship="Self.FK_Zayavki_na_oborudovanie_Postavshiki" FromRole="Zayavki_na_oborudovanie" ToRole="Postavshiki" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Zayavki_na_oborudovanie_Sotrudnik" FromRole="Zayavki_na_oborudovanie" ToRole="Sotrudnik" />
+        </EntityType>
+        <Association Name="FK_Autorizacia_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Autorizacia" Type="Self.Autorizacia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Autorizacia">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Doljnost">
+          <End Role="Doljnost" Type="Self.Doljnost" Multiplicity="0..1" />
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doljnost">
+              <PropertyRef Name="ID_Doljnost" />
+            </Principal>
+            <Dependent Role="Sotrudnik">
+              <PropertyRef Name="ID_Doljnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grafik_rabot_Smena">
+          <End Role="Smena" Type="Self.Smena" Multiplicity="0..1" />
+          <End Role="Grafik_rabot" Type="Self.Grafik_rabot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smena">
+              <PropertyRef Name="ID_Smena" />
+            </Principal>
+            <Dependent Role="Grafik_rabot">
+              <PropertyRef Name="ID_Smena" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grafik_rabot_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Grafik_rabot" Type="Self.Grafik_rabot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Grafik_rabot">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smena_Mesta_dobichi">
+          <End Role="Mesta_dobichi" Type="Self.Mesta_dobichi" Multiplicity="0..1" />
+          <End Role="Smena" Type="Self.Smena" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesta_dobichi">
+              <PropertyRef Name="ID_Mesta_dobichi" />
+            </Principal>
+            <Dependent Role="Smena">
+              <PropertyRef Name="ID_Mesta_dobichi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otchet_smeni_Metalli">
+          <End Role="Metalli" Type="Self.Metalli" Multiplicity="0..1" />
+          <End Role="Otchet_smeni" Type="Self.Otchet_smeni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Metalli">
+              <PropertyRef Name="ID_Metalla" />
+            </Principal>
+            <Dependent Role="Otchet_smeni">
+              <PropertyRef Name="ID_Metalla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavki_na_oborudovanie_Oborudovanie">
+          <End Role="Oborudovanie" Type="Self.Oborudovanie" Multiplicity="0..1" />
+          <End Role="Zayavki_na_oborudovanie" Type="Self.Zayavki_na_oborudovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oborudovanie">
+              <PropertyRef Name="ID_Oborudovaniya" />
+            </Principal>
+            <Dependent Role="Zayavki_na_oborudovanie">
+              <PropertyRef Name="ID_oborudovaniya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otchet_smeni_Smena">
+          <End Role="Smena" Type="Self.Smena" Multiplicity="0..1" />
+          <End Role="Otchet_smeni" Type="Self.Otchet_smeni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smena">
+              <PropertyRef Name="ID_Smena" />
+            </Principal>
+            <Dependent Role="Otchet_smeni">
+              <PropertyRef Name="ID_Smeni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pasport_Pol">
+          <End Role="Pol" Type="Self.Pol" Multiplicity="0..1" />
+          <End Role="Pasport" Type="Self.Pasport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pol">
+              <PropertyRef Name="ID_Pol" />
+            </Principal>
+            <Dependent Role="Pasport">
+              <PropertyRef Name="ID_Pol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pasport_Propiska">
+          <End Role="Propiska" Type="Self.Propiska" Multiplicity="0..1" />
+          <End Role="Pasport" Type="Self.Pasport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiska">
+              <PropertyRef Name="ID_Propiska" />
+            </Principal>
+            <Dependent Role="Pasport">
+              <PropertyRef Name="ID_Propiska" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Pasport">
+          <End Role="Pasport" Type="Self.Pasport" Multiplicity="0..1" />
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pasport">
+              <PropertyRef Name="ID_Pasport" />
+            </Principal>
+            <Dependent Role="Sotrudnik">
+              <PropertyRef Name="ID_Pasport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavki_na_oborudovanie_Postavshiki">
+          <End Role="Postavshiki" Type="Self.Postavshiki" Multiplicity="0..1" />
+          <End Role="Zayavki_na_oborudovanie" Type="Self.Zayavki_na_oborudovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postavshiki">
+              <PropertyRef Name="ID_Postavshika_oborudovaniya" />
+            </Principal>
+            <Dependent Role="Zayavki_na_oborudovanie">
+              <PropertyRef Name="ID_Postavshika_oborudovaniya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smena_Smotryashiy">
+          <End Role="Smotryashiy" Type="Self.Smotryashiy" Multiplicity="0..1" />
+          <End Role="Smena" Type="Self.Smena" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smotryashiy">
+              <PropertyRef Name="ID_Smotryashiy" />
+            </Principal>
+            <Dependent Role="Smena">
+              <PropertyRef Name="ID_Smotryashiy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smotryashiy_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Smotryashiy" Type="Self.Smotryashiy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Smotryashiy">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavki_na_oborudovanie_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Zayavki_na_oborudovanie" Type="Self.Zayavki_na_oborudovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Principal>
+            <Dependent Role="Zayavki_na_oborudovanie">
+              <PropertyRef Name="ID_Sotrudnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Autorizacia" EntityType="Self.Autorizacia" />
+          <EntitySet Name="Doljnost" EntityType="Self.Doljnost" />
+          <EntitySet Name="Grafik_rabot" EntityType="Self.Grafik_rabot" />
+          <EntitySet Name="Mesta_dobichi" EntityType="Self.Mesta_dobichi" />
+          <EntitySet Name="Metalli" EntityType="Self.Metalli" />
+          <EntitySet Name="Oborudovanie" EntityType="Self.Oborudovanie" />
+          <EntitySet Name="Otchet_smeni" EntityType="Self.Otchet_smeni" />
+          <EntitySet Name="Pasport" EntityType="Self.Pasport" />
+          <EntitySet Name="Pol" EntityType="Self.Pol" />
+          <EntitySet Name="Postavshiki" EntityType="Self.Postavshiki" />
+          <EntitySet Name="Propiska" EntityType="Self.Propiska" />
+          <EntitySet Name="Smena" EntityType="Self.Smena" />
+          <EntitySet Name="Smotryashiy" EntityType="Self.Smotryashiy" />
+          <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="vid_mestorozhdeniya" EntityType="Self.vid_mestorozhdeniya" />
+          <EntitySet Name="Zayavki_na_oborudovanie" EntityType="Self.Zayavki_na_oborudovanie" />
+          <AssociationSet Name="FK_Autorizacia_Sotrudnik" Association="Self.FK_Autorizacia_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Autorizacia" EntitySet="Autorizacia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Doljnost" Association="Self.FK_Sotrudnik_Doljnost">
+            <End Role="Doljnost" EntitySet="Doljnost" />
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grafik_rabot_Smena" Association="Self.FK_Grafik_rabot_Smena">
+            <End Role="Smena" EntitySet="Smena" />
+            <End Role="Grafik_rabot" EntitySet="Grafik_rabot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grafik_rabot_Sotrudnik" Association="Self.FK_Grafik_rabot_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Grafik_rabot" EntitySet="Grafik_rabot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smena_Mesta_dobichi" Association="Self.FK_Smena_Mesta_dobichi">
+            <End Role="Mesta_dobichi" EntitySet="Mesta_dobichi" />
+            <End Role="Smena" EntitySet="Smena" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otchet_smeni_Metalli" Association="Self.FK_Otchet_smeni_Metalli">
+            <End Role="Metalli" EntitySet="Metalli" />
+            <End Role="Otchet_smeni" EntitySet="Otchet_smeni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavki_na_oborudovanie_Oborudovanie" Association="Self.FK_Zayavki_na_oborudovanie_Oborudovanie">
+            <End Role="Oborudovanie" EntitySet="Oborudovanie" />
+            <End Role="Zayavki_na_oborudovanie" EntitySet="Zayavki_na_oborudovanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otchet_smeni_Smena" Association="Self.FK_Otchet_smeni_Smena">
+            <End Role="Smena" EntitySet="Smena" />
+            <End Role="Otchet_smeni" EntitySet="Otchet_smeni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pasport_Pol" Association="Self.FK_Pasport_Pol">
+            <End Role="Pol" EntitySet="Pol" />
+            <End Role="Pasport" EntitySet="Pasport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pasport_Propiska" Association="Self.FK_Pasport_Propiska">
+            <End Role="Propiska" EntitySet="Propiska" />
+            <End Role="Pasport" EntitySet="Pasport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Pasport" Association="Self.FK_Sotrudnik_Pasport">
+            <End Role="Pasport" EntitySet="Pasport" />
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavki_na_oborudovanie_Postavshiki" Association="Self.FK_Zayavki_na_oborudovanie_Postavshiki">
+            <End Role="Postavshiki" EntitySet="Postavshiki" />
+            <End Role="Zayavki_na_oborudovanie" EntitySet="Zayavki_na_oborudovanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smena_Smotryashiy" Association="Self.FK_Smena_Smotryashiy">
+            <End Role="Smotryashiy" EntitySet="Smotryashiy" />
+            <End Role="Smena" EntitySet="Smena" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smotryashiy_Sotrudnik" Association="Self.FK_Smotryashiy_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Smotryashiy" EntitySet="Smotryashiy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavki_na_oborudovanie_Sotrudnik" Association="Self.FK_Zayavki_na_oborudovanie_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Zayavki_na_oborudovanie" EntitySet="Zayavki_na_oborudovanie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище GornoDobivayushiyKombinatModelContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="Autorizacia">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Autorizacia">
+              <MappingFragment StoreEntitySet="Autorizacia">
+                <ScalarProperty Name="ID_Avtorizaciya" ColumnName="ID_Avtorizaciya" />
+                <ScalarProperty Name="ID_Sotrudnik" ColumnName="ID_Sotrudnik" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Parol" ColumnName="Parol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doljnost">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Doljnost">
+              <MappingFragment StoreEntitySet="Doljnost">
+                <ScalarProperty Name="ID_Doljnost" ColumnName="ID_Doljnost" />
+                <ScalarProperty Name="Nazvanie_dooljnosti" ColumnName="Nazvanie_dooljnosti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grafik_rabot">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Grafik_rabot">
+              <MappingFragment StoreEntitySet="Grafik_rabot">
+                <ScalarProperty Name="ID_Grafik_rabot" ColumnName="ID_Grafik_rabot" />
+                <ScalarProperty Name="ID_Smena" ColumnName="ID_Smena" />
+                <ScalarProperty Name="ID_Sotrudnik" ColumnName="ID_Sotrudnik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mesta_dobichi">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Mesta_dobichi">
+              <MappingFragment StoreEntitySet="Mesta_dobichi">
+                <ScalarProperty Name="ID_Mesta_dobichi" ColumnName="ID_Mesta_dobichi" />
+                <ScalarProperty Name="ID_Vid_Mestorozhdenia" ColumnName="ID_Vid_Mestorozhdenia" />
+                <ScalarProperty Name="Gorod" ColumnName="Gorod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Metalli">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Metalli">
+              <MappingFragment StoreEntitySet="Metalli">
+                <ScalarProperty Name="ID_Metalla" ColumnName="ID_Metalla" />
+                <ScalarProperty Name="Nazvanie_metalla" ColumnName="Nazvanie_metalla" />
+                <ScalarProperty Name="Plotnost_metalla" ColumnName="Plotnost_metalla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oborudovanie">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Oborudovanie">
+              <MappingFragment StoreEntitySet="Oborudovanie">
+                <ScalarProperty Name="ID_Oborudovaniya" ColumnName="ID_Oborudovaniya" />
+                <ScalarProperty Name="Nazvaie_oborudovaniya" ColumnName="Nazvaie_oborudovaniya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Otchet_smeni">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Otchet_smeni">
+              <MappingFragment StoreEntitySet="Otchet_smeni">
+                <ScalarProperty Name="ID_Otchet_smeni" ColumnName="ID_Otchet_smeni" />
+                <ScalarProperty Name="ID_Smeni" ColumnName="ID_Smeni" />
+                <ScalarProperty Name="ID_Metalla" ColumnName="ID_Metalla" />
+                <ScalarProperty Name="Kolichestvo_dobitogo_metalla" ColumnName="Kolichestvo_dobitogo_metalla" />
+                <ScalarProperty Name="Kolichestvo_rabotnikov" ColumnName="Kolichestvo_rabotnikov" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pasport">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Pasport">
+              <MappingFragment StoreEntitySet="Pasport">
+                <ScalarProperty Name="ID_Pasport" ColumnName="ID_Pasport" />
+                <ScalarProperty Name="Imya" ColumnName="Imya" />
+                <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+                <ScalarProperty Name="Data_rozhdenia" ColumnName="Data_rozhdenia" />
+                <ScalarProperty Name="Data_vidachy" ColumnName="Data_vidachy" />
+                <ScalarProperty Name="Kem_vidan" ColumnName="Kem_vidan" />
+                <ScalarProperty Name="Nomer" ColumnName="Nomer" />
+                <ScalarProperty Name="Seria" ColumnName="Seria" />
+                <ScalarProperty Name="ID_Propiska" ColumnName="ID_Propiska" />
+                <ScalarProperty Name="ID_Pol" ColumnName="ID_Pol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pol">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Pol">
+              <MappingFragment StoreEntitySet="Pol">
+                <ScalarProperty Name="ID_Pol" ColumnName="ID_Pol" />
+                <ScalarProperty Name="Pol1" ColumnName="Pol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Postavshiki">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Postavshiki">
+              <MappingFragment StoreEntitySet="Postavshiki">
+                <ScalarProperty Name="ID_Postavshika_oborudovaniya" ColumnName="ID_Postavshika_oborudovaniya" />
+                <ScalarProperty Name="Nazvanie_postavshika" ColumnName="Nazvanie_postavshika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Propiska">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Propiska">
+              <MappingFragment StoreEntitySet="Propiska">
+                <ScalarProperty Name="ID_Propiska" ColumnName="ID_Propiska" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Rayon" ColumnName="Rayon" />
+                <ScalarProperty Name="Punkt" ColumnName="Punkt" />
+                <ScalarProperty Name="Ulitca" ColumnName="Ulitca" />
+                <ScalarProperty Name="Dom" ColumnName="Dom" />
+                <ScalarProperty Name="Data_registracii" ColumnName="Data_registracii" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smena">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Smena">
+              <MappingFragment StoreEntitySet="Smena">
+                <ScalarProperty Name="ID_Smena" ColumnName="ID_Smena" />
+                <ScalarProperty Name="ID_Mesta_dobichi" ColumnName="ID_Mesta_dobichi" />
+                <ScalarProperty Name="Data_nachala" ColumnName="Data_nachala" />
+                <ScalarProperty Name="Data_konca" ColumnName="Data_konca" />
+                <ScalarProperty Name="ID_Smotryashiy" ColumnName="ID_Smotryashiy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smotryashiy">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Smotryashiy">
+              <MappingFragment StoreEntitySet="Smotryashiy">
+                <ScalarProperty Name="ID_Smotryashiy" ColumnName="ID_Smotryashiy" />
+                <ScalarProperty Name="ID_Sotrudnik" ColumnName="ID_Sotrudnik" />
+                <ScalarProperty Name="Imya_naznachivshego" ColumnName="Imya_naznachivshego" />
+                <ScalarProperty Name="Familiya_naznachivshego" ColumnName="Familiya_naznachivshego" />
+                <ScalarProperty Name="Otchestvo_naznachivshego" ColumnName="Otchestvo_naznachivshego" />
+                <ScalarProperty Name="Data_naznacheniya" ColumnName="Data_naznacheniya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sotrudnik">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Sotrudnik">
+              <MappingFragment StoreEntitySet="Sotrudnik">
+                <ScalarProperty Name="ID_Sotrudnik" ColumnName="ID_Sotrudnik" />
+                <ScalarProperty Name="ID_Pasport" ColumnName="ID_Pasport" />
+                <ScalarProperty Name="Oklad" ColumnName="Oklad" />
+                <ScalarProperty Name="Nomer_telephona" ColumnName="Nomer_telephona" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Data_nachala_rabot" ColumnName="Data_nachala_rabot" />
+                <ScalarProperty Name="Data_uvolneniya" ColumnName="Data_uvolneniya" />
+                <ScalarProperty Name="ID_Doljnost" ColumnName="ID_Doljnost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vid_mestorozhdeniya">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.vid_mestorozhdeniya">
+              <MappingFragment StoreEntitySet="vid_mestorozhdeniya">
+                <ScalarProperty Name="ID_Vid_mestorozhdeniya" ColumnName="ID_Vid_mestorozhdeniya" />
+                <ScalarProperty Name="Vid_mestorozhdeniya1" ColumnName="Vid_mestorozhdeniya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zayavki_na_oborudovanie">
+            <EntityTypeMapping TypeName="GornoDobivayushiyKombinatModel.Zayavki_na_oborudovanie">
+              <MappingFragment StoreEntitySet="Zayavki_na_oborudovanie">
+                <ScalarProperty Name="ID_Zayavki_na_zakaz_oborudovaniya" ColumnName="ID_Zayavki_na_zakaz_oborudovaniya" />
+                <ScalarProperty Name="ID_Postavshika_oborudovaniya" ColumnName="ID_Postavshika_oborudovaniya" />
+                <ScalarProperty Name="ID_oborudovaniya" ColumnName="ID_oborudovaniya" />
+                <ScalarProperty Name="Kolichestvo_postavlyaemogo_oborudovaniya" ColumnName="Kolichestvo_postavlyaemogo_oborudovaniya" />
+                <ScalarProperty Name="ID_Sotrudnik" ColumnName="ID_Sotrudnik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

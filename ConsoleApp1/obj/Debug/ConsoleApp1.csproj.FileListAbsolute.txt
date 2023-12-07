@@ -1,0 +1,15 @@
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\EntityFramework.dll
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\HashPasswords.dll
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\HashPasswords.pdb
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\EntityFramework.xml
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\pr-22.106-bk\source\repos\wpf3rab\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
