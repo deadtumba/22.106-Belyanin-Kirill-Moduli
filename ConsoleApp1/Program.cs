@@ -1,4 +1,4 @@
-﻿using ConsoleApp1.Models1;
+using ConsoleApp1.Models1;
 using HashPasswords;
 using System;
 using System.Collections.Generic;
@@ -37,6 +37,46 @@ namespace ConsoleApp1
                     if (string.IsNullOrEmpty(famil) || !Regex.IsMatch(famil, "^[а-яА-Я]+$"))
                     {
                         Console.WriteLine("Некорректно введено фамилия, попробуйте еще раз");
+                    }
+                }
+                string othes = "";
+                while (string.IsNullOrEmpty(othes) || !Regex.IsMatch(othes, "^[а-яА-Я]+$"))
+                {
+                    Console.Write("Введите отчество пользователя:");
+                    othes = Console.ReadLine();
+                    if (string.IsNullOrEmpty(othes) || !Regex.IsMatch(othes, "^[а-яА-Я]+$"))
+                    {
+                        Console.WriteLine("Некорректно введено отчество, попробуйте еще раз");
+                    }
+                }
+                string oklad = "";
+                while (string.IsNullOrEmpty(oklad) || !Regex.IsMatch(oklad, "^[0-9]+$"))
+                {
+                    Console.Write("Введите оклад пользователя:");
+                    oklad = Console.ReadLine();
+                    if (string.IsNullOrEmpty(oklad) || !Regex.IsMatch(oklad, "^[0-9]+$"))
+                    {
+                        Console.WriteLine("Некорректно введен оклад, попробуйте еще раз");
+                    }
+                }
+                string mail = "";
+                while (string.IsNullOrEmpty(mail) || !Regex.IsMatch(mail, "^[a-zA-Z@.com]+$"))
+                {
+                    Console.Write("Введите почту пользователя:");
+                    mail = Console.ReadLine();
+                    if (string.IsNullOrEmpty(mail) || !Regex.IsMatch(mail, "^[a-zA-Z@.com]+$"))
+                    {
+                        Console.WriteLine("Некорректно введена почта, попробуйте еще раз");
+                    }
+                }
+                string data = "";
+                while (string.IsNullOrEmpty(data) || !Regex.IsMatch(data, "^[(1-28-92-90-9).(0-1)(0-9).(0-30-9)]+$"))
+                {
+                    Console.Write("Введите дату начала работы пользователя:");
+                    data = Console.ReadLine();
+                    if (string.IsNullOrEmpty(data) || !Regex.IsMatch(data, "^[(1-28-92-90-9).(0-1)(0-9).(0-30-9)]+$"))
+                    {
+                        Console.WriteLine("Некорректно введена дата начала работы, попробуйте еще раз");
                     }
                 }
                 string login = "";
